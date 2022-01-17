@@ -7,11 +7,7 @@ from HTTPClient import NVPair
 def parseJsonString(json, element):
   for x in json.split(","):
     pc = x.replace('"','').split(":")
-    if pc[0].replace("{","") == element:
-      ele = pc[1].replace("}","")
-      return ele
-    else:
-      return ""
+    return pc[1].replace("}","") if pc[0].replace("{","") == element else ""
 
 test1 = Test(1, "Request resource")
 request1 = HTTPRequest()
